@@ -1,0 +1,31 @@
+<!-- pages/score/score.wxml -->
+<view class="container">
+    <form action="">
+        <view class="socreLogin">
+            <view class="item">
+                <text>学号：</text>
+                <input type="text" placeholder="请输入教务系统学号"></input>
+            </view>
+            <view class="item">
+                <text>密码：</text>
+                <input type="text" placeholder="请输入教务系统密码"></input>
+            </view>
+            <view class="item">
+                <text>学期：</text>
+                <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                    <view class="picker">当前选择：{{array[index]}}</view>
+                </picker>
+            </view>
+        </view>
+        <button bindtap="showResult">查询</button>
+    </form>
+</view>
+<view class="result {{show?'result-show':''}}">
+    <icon bindtap="showResult" type="clear" size="18" color="#76B78F"></icon>
+    <view class="score">
+        <text>当前学期：{{array[index]}}</text>
+        <view class="wrap">
+            <view></view>
+        </view>
+    </view>
+</view>

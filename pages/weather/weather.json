@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "my-city":"/components/tag/tag",
+        "my-weather":"/components/weather/weather"
+    }
+}

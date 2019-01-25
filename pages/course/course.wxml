@@ -1,0 +1,7 @@
+<!-- pages/course/course.wxml -->
+<view class="warpper">
+    <my-time></my-time>
+    <block wx:for="{{course}}" wx:key="index">
+        <my-day item="{{item}}"></my-day>
+    </block>
+</view>

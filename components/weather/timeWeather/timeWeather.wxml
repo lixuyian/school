@@ -1,0 +1,6 @@
+<!--components/weather/timeWeather/timeWeather.wxml-->
+<view class="wrap">
+    <view>{{detail.time}}时</view>
+    <image src="/images/weather/weather/qing.png"></image>
+    <view>{{detail.temperature}}℃</view>
+</view>

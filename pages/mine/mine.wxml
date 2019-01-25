@@ -1,0 +1,16 @@
+<!-- pages/mine/mine.wxml -->
+<view class="container">
+    <view class="info">
+        <image src="/images/mine/20151027122503_8ZVLU.jpeg"></image>
+        <text>nickname</text>
+    </view>
+    <view class="item">
+        <view class="title">学籍信息</view>
+        <view class="list">
+            <text>学校: 湖北经济学院</text>
+            <text>专业: 电子信息工程</text>
+            <text>入学年份: 2015</text>
+        </view>
+    </view>
+    <button>修改</button>
+</view>

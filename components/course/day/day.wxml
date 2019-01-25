@@ -1,0 +1,12 @@
+<!-- components/course/day/day.wxml -->
+<view class="warpper">
+    <view class="day">
+        <text>{{item.day}}</text>
+        <text>{{item.date}}</text>
+    </view>
+    <view class="course">
+        <block wx:for="{{oneDayContent}}" wx:key="index">
+            <my-course class="{{item.i==1?'one':''||item.i==2?'two':''||item.i==3?'three':''||item.i==4?'four':''||item.i==5?'five':''||item.i==6?'six':''||item.i==7?'seven':''||item.i==8?'eight':''||item.i==9?'nine':''||item.i==10?'ten':''||item.i==11?'eleven':''}} {{item.span==1?'span1':''||item.span==2?'span2':''||item.span==3?'span3':''||item.span==4?'span4':''}} {{item.type==1?'color1':''||item.type==2?'color2':''||item.type==3?'color3':''||item.type==4?'color4':''||item.type==5?'color5':''||item.type==6?'color6':''||item.type==7?'color7':''||item.type==8?'color8':''||item.type==9?'color9':''||item.type==10?'color10':''||item.type==0?'color0':''}}" content="{{item}}"></my-course>
+        </block>
+    </view>
+</view>

@@ -1,0 +1,4 @@
+<!-- components/course/course/course.wxml -->
+<view class="course">
+    {{content.courseName}}
+</view>

@@ -1,0 +1,14 @@
+<!-- components/weather/weather.wxml -->
+<view class="wrapper">
+    <view class="wrap">
+        <text class="date">{{date?'今日':content.date}}</text>
+        <text>{{content.day}}</text>
+        <image wx:if="{{!date}}" src="/images/weather/weather/baoxue.png"></image>
+        <text>{{content.range}}℃</text>
+    </view>
+    <scroll-view scroll-x="false" scroll-y="true" wx:if="{{date}}">
+        <block wx:for="{{detailWeather[0].whole}}" wx:key="index">
+            <my-timeWeather detail="{{item}}"></my-timeWeather>
+        </block>
+    </scroll-view>
+</view>

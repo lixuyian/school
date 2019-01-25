@@ -1,0 +1,8 @@
+<!-- pages/hasTest/hasTest.wxml -->
+<picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <view class="picker" bindlongpress="delect">
+        其他城市：
+        <image src="/images/weather/jiahao.png"></image>
+        {{cities}}
+    </view>
+</picker>

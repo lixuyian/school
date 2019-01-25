@@ -1,0 +1,16 @@
+<!--components/course/date/date.wxml-->
+<view class="warpper">
+    <view>12月</view>
+    <view>01</view>
+    <view>02</view>
+    <view>03</view>
+    <view>04</view>
+    <view>05</view>
+    <view>06</view>
+    <view>07</view>
+    <view>08</view>
+    <view>09</view>
+    <view>10</view>
+    <view>11</view>
+</view>
+

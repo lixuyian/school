@@ -1,0 +1,20 @@
+<!-- pages/welcome/welcome.wxml -->
+<image src="/images/welcome/ribbon.jpg"></image>
+<view class="container">
+    <view bind:tap="JumpToCourse">
+        <image src="/images/welcome/course.png"></image>
+        <text>课表</text>
+    </view>
+    <view bind:tap="JumpToScore">
+        <image src="/images/welcome/score.png"></image>
+        <text>成绩</text>
+    </view>
+    <view bind:tap="JumpToWeather">
+        <image src="/images/welcome/weather.png"></image>
+        <text>天气</text>
+    </view>
+    <view bind:tap="JumpToMine">
+        <image src="/images/welcome/mine.png"></image>
+        <text>设置</text>
+    </view>
+</view>

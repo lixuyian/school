@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "my-timeWeather":"/components/weather/timeWeather/timeWeather"
+  }
+}

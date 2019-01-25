@@ -1,0 +1,26 @@
+/* pages/welcome/welcome.wxss */
+page{
+    background: #FFF0DD;
+}
+image{
+    width: 100%;
+}
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 20rpx;
+    justify-items: center;
+}
+.container>view{
+    /* border: 1px solid #333; */
+    height: 150rpx;
+}
+.container>view>image{
+    width: 80rpx;
+    height: 80rpx;
+    margin-bottom: 20rpx;
+    display: block;
+}
+.container>view>text{
+    font-size: 35rpx;
+}

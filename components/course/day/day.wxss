@@ -1,0 +1,91 @@
+/* components/course/day/day.wxss */
+.warpper{
+    display: grid;
+    grid-template-rows: repeat(12,50px);
+    text-align: center;
+    font-size: 35rpx;
+}
+.warpper>view{
+    text-align: center;
+    vertical-align: center;
+}
+.day{
+    background: rgba(147, 209, 172, 0.3);
+    display: grid;
+    align-items:center;
+    justify-items: center;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+.course{
+    display: grid;
+    grid-template-rows: repeat(11,50px);
+}
+my-course{
+    display: grid;
+    align-items:center;
+    justify-items: center;
+}
+.color0{
+    background: #b88884
+}
+.color1{
+    background: #a1afc9
+}
+.color2{
+    background: #93b881
+}
+.color3{
+    background: #bbbcde
+}
+.color4{
+    background: #bfa46f
+}
+.color5{
+    background: #c0c6c9
+}
+.color6{
+    background: #c099a0
+}
+.color7{
+    background: #bbcdc5
+}
+.color8{
+    background:#e09e87;
+}
+.color9{
+    background: #e4c6d0
+}
+.color10{
+    background: #eedeb0;
+}
+.one{
+    grid-row-start:1;
+}
+.three{
+    grid-row-start: 3;
+}
+.five{
+    grid-row-start: 5;
+    /* background: #a98175; */
+    /* background:#b36d61 */
+}
+.seven{
+    grid-row-start: 7;
+}
+.nine{
+    grid-row-start: 9;
+}
+.span1{
+    grid-row-end: span 1;
+}
+.span2{
+    grid-row-end: span 2;
+    /* background: pink; */
+}
+.span3{
+    grid-row-end: span 3;
+}
+.span4{
+    grid-row-end: span 4;
+}

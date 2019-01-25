@@ -1,0 +1,19 @@
+/* pages/test/test.wxss */
+/*index.wxss*/
+/*显示前*/
+.mask-con{
+transition: 1s; 
+position: fixed;
+width: 100%;
+height: 300rpx;
+left: 0;
+bottom: -300rpx;
+ 
+text-align: center;
+line-height: 300rpx;
+box-shadow: 0 1px 10px #aaa;
+}
+/*显示后*/
+.mask-con-show{
+bottom: 0;
+}

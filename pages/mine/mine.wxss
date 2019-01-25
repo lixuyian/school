@@ -1,0 +1,39 @@
+/* pages/mine/mine.wxss */
+page{
+    background: rgba(147, 209, 172, 0.3);
+}
+.info{
+    display: flex;
+    align-items: center;
+    margin-bottom: 50rpx;
+}
+.info>image{
+    width: 175rpx;
+    height: 175rpx;
+    border-radius: 50%;
+    margin-right: 40rpx;
+}
+.title{
+    font-size: 40rpx;
+    font-weight: bold;
+    margin-bottom: 30rpx;
+}
+.list{
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    padding: 0 50rpx;
+    box-sizing: border-box;
+    border-radius: 20rpx;
+    border:3px dotted gray;
+}
+.list>text{
+    line-height: 150rpx;
+    border-bottom: 1px solid gray;
+}
+button{
+    background:#76B78F;
+    margin-top: 100rpx;
+    border-radius: 80rpx;
+    font-size: 40rpx;
+}

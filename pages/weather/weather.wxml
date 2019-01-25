@@ -1,0 +1,35 @@
+<!-- pages/weather/weather.wxml -->
+<view class="container">
+    <!-- 地理位置修改模块开始 -->
+    <view class="modify-location {{show?'locationChange':''}}">
+        <icon bindtap="location" type="clear" size="18" color="#76B78F"></icon>
+        <view class="current">当前城市：</view>
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+            <view class="picker">
+                其他城市：
+                <image src="/images/weather/jiahao.png"></image>
+                <block wx:for="{{cities}}" wx:key="index">
+                    <my-city content="{{item}}" bind:longpress="delect"></my-city>
+                </block>
+            </view>
+        </picker>
+    </view>
+    <!-- 地理位置修改模块结束 -->
+    <!-- 天气信息开始 -->
+    <view class="warp">
+        <!-- 左右滑动切换地理位置及天气信息开始 -->
+        <image class="chose" bindtap="location" src="/images/weather/dili.png"></image>
+        <block wx:for="{{weather}}" wx:key="index">
+            <view class="location ripple {{cardRightIn?'fadeInRight':''}} {{cardLeftIn?'fadeInLeft':''}}" wx:if="{{index==currentIndex}}" bindtouchstart="touchstart" bindtouchmove="touchmove" data-index="{{index}}">
+                <text class="city">{{item.city}}</text>
+                <view class="weather">
+                    <block wx:for="{{item.weather}}" wx:key="index">
+                        <my-weather content="{{item}}"></my-weather>
+                    </block>
+                </view>
+            </view>
+        </block>
+        <!-- 左右滑动切换地理位置及天气信息结束 -->
+    </view>
+    <!-- 天气信息结束 -->
+</view>

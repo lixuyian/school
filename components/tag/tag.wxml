@@ -1,0 +1,4 @@
+<!--components/tag/tag.wxml-->
+<view class="wrap" bindlongpress="long">
+    {{content}}
+</view>

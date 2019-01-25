@@ -1,0 +1,56 @@
+/* pages/score/score.wxss */
+page{
+    /* background: #76B78F; */
+    /* background: #93D1AC; */
+    /* background: #21a675; */
+    background: rgba(147, 209, 172, 0.3);
+
+}
+.wrapper{
+    padding: 0 20rpx;
+}
+.socreLogin{
+    background: #fff;
+    border-radius: 20rpx;
+    border:3px dotted gray;
+    padding: 30rpx;
+}
+.item{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #aaa;
+}
+.item>input{
+    height: 150rpx;
+}
+button{
+    background:#76B78F;
+    margin-top: 100rpx;
+    border-radius: 80rpx;
+    font-size: 40rpx;
+}
+.result{
+    width: 100%;
+    height: 1030rpx;
+    padding: 30rpx;
+    box-sizing: border-box;
+    background: #fff;
+    box-shadow: 0 1px 10px #aaa;
+    position: fixed;
+    z-index: 100;
+    bottom: -1014rpx;
+    transition: 1s;
+    border-radius: 20rpx;
+    border: 3px dotted gray;
+}
+.result-show{
+    bottom: 0rpx;
+}
+.result icon{
+    position: absolute;
+    top: 15rpx;
+    right: 15rpx;
+}
+.item>picker{
+    line-height: 150rpx;
+}

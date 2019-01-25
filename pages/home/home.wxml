@@ -1,0 +1,10 @@
+<!--pages/home/home.wxml-->
+
+<view class="item">
+    <view class="container">
+        <view>1</view>
+        <view>2</view>
+        <view>3</view>
+        <view>4</view>
+    </view>
+</view>

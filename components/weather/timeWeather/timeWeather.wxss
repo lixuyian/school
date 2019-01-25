@@ -1,0 +1,9 @@
+/* components/weather/timeWeather/timeWeather.wxss */
+.wrap{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    align-items: center;
+    justify-items: center;
+    font-size: 30rpx;
+    margin-bottom: 10rpx;
+}

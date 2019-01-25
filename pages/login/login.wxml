@@ -1,0 +1,22 @@
+<!-- pages/login/login.wxml -->
+<view class="container">
+    <text class="require">请输入账号密码</text>
+    <view class="box">
+        <!-- <input value="" type="text" password="true" placeholder="请输入手机号码/邮箱" placeholder-style="" placeholder-class="" disabled="false" maxlength="140" auto-focus="false" focus="false" bindchange="" bindinput="" bindfocus="" bindblur=""></input> -->
+        <input class="id" type="text" placeholder="请输入手机号码/邮箱">
+            <icon type="clear" size="18" color=""></icon>
+        </input>
+        <input class="password" placeholder="请输入密码"></input>
+        <button bind:tap="turnTo" class="login">登录/注册</button>
+    </view>
+    <view>
+        <view class="weChat-login {{show?'weChat-login-show':''}}">
+            <text bindtap="changeMask">其他登录</text>
+            <view class="otherLogin">
+                <image src="{{show?'/images/login/qq-Sel.png':'/images/login/qq.png'}}"></image>
+                <image src="{{show?'/images/login/wechat-Sel.png':'/images/login/wechat.png'}}"></image>
+                <image src="{{show?'/images/login/weibo-Sel.png':'/images/login/weibo.png'}}"></image>
+            </view>
+        </view>
+    </view>
+</view>
