@@ -1,17 +1,33 @@
 <!-- pages/information/information.wxml -->
-<view class="container">
+<view class="unLogin" wx:if="{{!isLogin}}">
+    <view class="info">
+        <button plain="{{true}}" open-type="getUserInfo" bindgetuserinfo="onGetUserInfo">
+            <image src="/images/mine/unLogin.jpg"></image>
+        </button>
+        <text>点击头像授权登录</text>
+    </view>
+</view>
+<view class="container" wx:if="{{isLogin}}">
     <text class="require">学籍信息填写</text>
     <view class="box">
         <!-- <input value="" type="text" password="true" placeholder="请输入手机号码/邮箱" placeholder-style="" placeholder-class="" disabled="false" maxlength="140" auto-focus="false" focus="false" bindchange="" bindinput="" bindfocus="" bindblur=""></input> -->
-        <input class="id" type="text" placeholder="请输入所在院校">
-            <icon type="clear" size="18" color=""></icon>
+        <input class="id" type="text" placeholder="请输入所在院校" bindinput="onSchool" value="{{school}}">
+            <icon bind:tap="clearSchool" type="clear" size="18" color=""></icon>
         </input>
-        <input class="id" placeholder="请输入所在院系">
-            <icon type="clear" size="18" color=""></icon>
+        <input class="id" placeholder="请输入所在院系" bindinput="onMajor" value="{{major}}">
+            <icon bind:tap="clearMajor" type="clear" size="18" color=""></icon>
         </input>
-        <input class="id" placeholder="请输入入学年份">
-            <icon type="clear" size="18" color=""></icon>
+        <input class="id" placeholder="请输入入学年份" bindinput="onYear" value="{{year}}">
+            <icon bind:tap="clearYear" type="clear" size="18" color=""></icon>
         </input>
-        <button bind:tap="turnTo" class="login">提交</button>
+        <input class="id" placeholder="请输入学号" bindinput="onId" value="{{id}}">
+            <icon bind:tap="clearId" type="clear" size="18" color=""></icon>
+        </input>
+        <input type="{{ableToSee?'text':'password'}}" class="id" placeholder="请输入密码" bindinput="onPassword">
+            <icon bind:tap="see" type="" size="18" color="">
+                <image src='{{ableToSee?"../../images/information/eye.png":"../../images/information/closeeye.png"}}'></image>
+            </icon>
+        </input>
+        <button bind:tap="submitAndTurn" class="login">提交</button>
     </view>
 </view>

@@ -1,6 +1,6 @@
 <!--components/weather/timeWeather/timeWeather.wxml-->
 <view class="wrap">
     <view>{{detail.time}}时</view>
-    <image src="/images/weather/weather/qing.png"></image>
+    <image src='{{detail.type==1?"../../../images/weather/weather/baoxue.png":""||detail.type==2?"../../../images/weather/weather/qing.png":""||detail.type==3?"../../../images/weather/weather/duoyun.png":""||detail.type==4?"../../../images/weather/weather/wu.png":""||detail.type==5?"../../../images/weather/weather/shachenbao.png":""||detail.type==6?"../../../images/weather/weather/xiaoyu.png":""}}'></image>
     <view>{{detail.temperature}}℃</view>
 </view>

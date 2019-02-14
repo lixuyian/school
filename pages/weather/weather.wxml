@@ -3,7 +3,7 @@
     <!-- 地理位置修改模块开始 -->
     <view class="modify-location {{show?'locationChange':''}}">
         <icon bindtap="location" type="clear" size="18" color="#76B78F"></icon>
-        <view class="current">当前城市：</view>
+        <view class="current">当前城市：武汉</view>
         <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
             <view class="picker">
                 其他城市：
@@ -19,16 +19,22 @@
     <view class="warp">
         <!-- 左右滑动切换地理位置及天气信息开始 -->
         <image class="chose" bindtap="location" src="/images/weather/dili.png"></image>
-        <block wx:for="{{weather}}" wx:key="index">
-            <view class="location ripple {{cardRightIn?'fadeInRight':''}} {{cardLeftIn?'fadeInLeft':''}}" wx:if="{{index==currentIndex}}" bindtouchstart="touchstart" bindtouchmove="touchmove" data-index="{{index}}">
-                <text class="city">{{item.city}}</text>
-                <view class="weather">
-                    <block wx:for="{{item.weather}}" wx:key="index">
-                        <my-weather content="{{item}}"></my-weather>
-                    </block>
+        <view wx:if="{{!empty}}">
+            <block wx:for="{{weather}}" wx:key="index">
+                <view class="location ripple {{cardRightIn?'fadeInRight':''}} {{cardLeftIn?'fadeInLeft':''}}" wx:if="{{index==currentIndex}}" bindtouchstart="touchstart" bindtouchmove="touchmove" data-index="{{index}}">
+                    <text class="city">{{item.city}}</text>
+                    <view class="weather">
+                        <block wx:for="{{item.weather}}" wx:key="index">
+                            <my-weather content="{{item}}"></my-weather>
+                        </block>
+                    </view>
                 </view>
-            </view>
-        </block>
+            </block>
+        </view>
+        <view wx:if="{{empty}}" class="empty">
+            <image src="../../images/weather/empty.jpg"></image>
+            还没有选择城市呀
+        </view>
         <!-- 左右滑动切换地理位置及天气信息结束 -->
     </view>
     <!-- 天气信息结束 -->

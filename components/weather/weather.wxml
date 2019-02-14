@@ -3,11 +3,11 @@
     <view class="wrap">
         <text class="date">{{date?'今日':content.date}}</text>
         <text>{{content.day}}</text>
-        <image wx:if="{{!date}}" src="/images/weather/weather/baoxue.png"></image>
+        <image wx:if="{{!date}}" src='{{content.type==1?"/images/weather/weather/baoxue.png":""||content.type==2?"/images/weather/weather/qing.png":""||content.type==3?"/images/weather/weather/duoyun.png":""||content.type==4?"/images/weather/weather/wu.png":""||content.type==5?"/images/weather/weather/shachenbao.png":""||content.type==6?"/images/weather/weather/xiaoyu.png":""}}'></image>
         <text>{{content.range}}℃</text>
     </view>
     <scroll-view scroll-x="false" scroll-y="true" wx:if="{{date}}">
-        <block wx:for="{{detailWeather[0].whole}}" wx:key="index">
+        <block wx:for="{{detailWeather.whole}}" wx:key="index">
             <my-timeWeather detail="{{item}}"></my-timeWeather>
         </block>
     </scroll-view>

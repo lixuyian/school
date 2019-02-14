@@ -12,7 +12,7 @@ Page({
     /**左右滑动end */
     /**地理位置切换begin */
     show: false,
-    cities: [],
+    cities: ['武汉'],
     array: ['武汉', '厦门', '南京', '上海', '广州', '深圳', '香港', '台湾'],
     objectArray: [
       { id: 0, name: '武汉' },
@@ -26,166 +26,20 @@ Page({
     ],
     /**地理位置切换end */
     /**天气信息begin */
-    weather: [
-      {
-        id: 0,
-        city: "武汉",
-        weather:
-          [
-            {
-              date: "12 / 13",
-              day: "周四",
-              type: 0,//0,1,2,3,4,5,6,7,8区分天气类型
-              range: "-2~5",
-            },
-            {
-              date: "12 / 14",
-              day: "周五",
-              type: 1,//0,1,2,3,4,5,6,7,8区分天气类型
-              range: "0~7",
-            },
-            {
-              date: "12 / 15",
-              day: "周六",
-              type: 2,//0,1,2,3,4,5,6,7,8区分天气类型
-              range: "1~7",
-            },
-            {
-              date: "12 / 16",
-              day: "周日",
-              type: 3,//0,1,2,3,4,5,6,7,8区分天气类型
-              range: "0~13",
-            },
-            {
-              date: "12 / 17",
-              day: "周一",
-              type: 4,//0,1,2,3,4,5,6,7,8区分天气类型
-              range: "0~14",
-            },
-            {
-              date: "12 / 18",
-              day: "周二",
-              type: 5,//0,1,2,3,4,5,6,7,8区分天气类型
-              range: "0~5",
-            },
-            {
-              date: "12 / 19",
-              day: "周三",
-              type: 6,//0,1,2,3,4,5,6,7,8区分天气类型
-              range: "0~5",
-            }
-          ],
-      },
-      {
-        id: 1,
-        city: "厦门",
-        weather:
-          [
-            {
-              date: "12 / 13",
-              day: "周四",
-              type: 0,//0,1,2,3,4,5,6,7,8区分天气类型
-              range: "-2~1",
-            },
-            {
-              date: "12 / 14",
-              day: "周五",
-              type: 1,//0,1,2,3,4,5,6,7,8区分天气类型
-              range: "0~7",
-            },
-            {
-              date: "12 / 15",
-              day: "周六",
-              type: 2,//0,1,2,3,4,5,6,7,8区分天气类型
-              range: "1~7",
-            },
-            {
-              date: "12 / 16",
-              day: "周日",
-              type: 3,//0,1,2,3,4,5,6,7,8区分天气类型
-              range: "0~13",
-            },
-            {
-              date: "12 / 17",
-              day: "周一",
-              type: 4,//0,1,2,3,4,5,6,7,8区分天气类型
-              range: "0~14",
-            },
-            {
-              date: "12 / 18",
-              day: "周二",
-              type: 5,//0,1,2,3,4,5,6,7,8区分天气类型
-              range: "0~5",
-            },
-            {
-              date: "12 / 19",
-              day: "周三",
-              type: 6,//0,1,2,3,4,5,6,7,8区分天气类型
-              range: "0~5",
-            }
-          ],
-
-      },
-      {
-        id: 2,
-        city: "南京",
-        weather:
-          [
-            {
-              date: "12 / 13",
-              day: "周四",
-              type: 0,//0,1,2,3,4,5,6,7,8区分天气类型
-              range: "-2~15",
-            },
-            {
-              date: "12 / 14",
-              day: "周五",
-              type: 1,//0,1,2,3,4,5,6,7,8区分天气类型
-              range: "0~7",
-            },
-            {
-              date: "12 / 15",
-              day: "周六",
-              type: 2,//0,1,2,3,4,5,6,7,8区分天气类型
-              range: "1~7",
-            },
-            {
-              date: "12 / 16",
-              day: "周日",
-              type: 3,//0,1,2,3,4,5,6,7,8区分天气类型
-              range: "0~13",
-            },
-            {
-              date: "12 / 17",
-              day: "周一",
-              type: 4,//0,1,2,3,4,5,6,7,8区分天气类型
-              range: "0~14",
-            },
-            {
-              date: "12 / 18",
-              day: "周二",
-              type: 5,//0,1,2,3,4,5,6,7,8区分天气类型
-              range: "0~5",
-            },
-            {
-              date: "12 / 19",
-              day: "周三",
-              type: 6,//0,1,2,3,4,5,6,7,8区分天气类型
-              range: "0~5",
-            }
-          ],
-
-      }
-    ],
-    cityIndex: [],
+    weather: [],
+    cityIndex: [0],
+    update: false,
+    empty: false
 
     /**天气信息end */
   },
   /**地理位置选择 */
   bindPickerChange(e) {
+    //1.获取城市id值
     var index = e.detail.value;
     var item = this.data.array[index];
     var cities = this.data.cities;
+    //2.判断该城市是否在cities数组中，如果没有添加进去
     var has = cities.includes(item);
     var cityIndex = this.data.cityIndex;
     var weather = this.data.weather;
@@ -202,14 +56,29 @@ Page({
       cityIndex,
       weather
     })
-    wx.setStorageSync('cities', this.data.cities);
-    wx.setStorageSync('cityIndex', this.data.cityIndex);
-    wx.setStorageSync('weather', this.data.weather);
+    console.log(index);
+    //2.使用获取的index值发送请求获取天气数据
+    wx.sendSocketMessage({
+      data: '{ "type": "weather", "action": "request", "data": { "cityId": ' + index + ', "date": "2018/12/12" } }'
+    })
+    this.setData({
+      update: true,
+      empty: false
+    })
+    wx.onSocketMessage(res => {
+      if (this.data.update) {
+        var data = JSON.parse(res.data);
+        var item = data.weather;
+        this.data.weather.push(item);
+        this.setData({
+          weather,
+        })
+      }
+    })
 
   },
   /**地理位置标签块删除 */
   delect(e) {
-    // console.log(e)
     if (e.detail.value) {
       var value = e.detail.value;
       var cities = this.data.cities;
@@ -224,45 +93,50 @@ Page({
         cityIndex,
         weather
       })
-      wx.setStorageSync('cities', this.data.cities);
-      wx.setStorageSync('cityIndex', this.data.cityIndex);
-      wx.setStorageSync('weather', this.data.weather);
-
-
-      // console.log(cities)
+    }
+    if (!cities) {
+      this.setData({
+        empty: true
+      })
     }
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var cities = wx.getStorageSync('cities');
-    var cityIndex = wx.getStorageSync('cityIndex');
-    var weather = wx.getStorageSync('weather');
-    if (cities) {
-      //将当日天气信息置于数组首位
-      // var myDate = new Date();
-      // // var currentTime = myDate.getHours();
-      // var currentDate = myDate.getDate().toString();
-      // weather.forEach(ele => {
-      //   var weather = ele.weather;
-      //   weather.forEach(element=>{
-      //     var date = element.date.toString();
-      //     console.log(element)
-      //   })
-      // });
-      return cities,
+    //进入页面请求武汉当前天气
+    //1.获取当前时间请求一周天气
+    var date = new Date().getDate();
+    var year = new Date().getFullYear();
+    var month = (new Date().getMonth()) + 1;
+    var currentDate = year + "/" + month + "/" + date;
+    // console.log(currentDat e);
+
+    wx.onSocketMessage(res => {
+      if (this.data.update) {
+        var data = JSON.parse(res.data);
+        var item = data.weather;
+        var weather = [
+          item
+        ]
         this.setData({
-          cities,
-          cityIndex,
           weather,
-          // currentDate
         })
-    }
-    else {
-      return []
-    };
+        wx.setStorageSync("weather", this.data.weather);
+      }
+
+    })
+    //进入页面默认取武汉12月12号之后一周天气
+    wx.sendSocketMessage({
+      data: '{ "type": "weather", "action": "request", "data": { "cityId": 0, "date": "2018/12/12" } }'
+    })
+    this.setData({
+      update: true
+    })
   },
+
+
+
   /**地理位置切换模块 */
   location() {
     var isShow = this.data.show ? false : true;

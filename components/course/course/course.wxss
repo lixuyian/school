@@ -1,1 +1,4 @@
 /* components/course/course/course.wxss */
+.course{
+    padding: 10rpx;
+}

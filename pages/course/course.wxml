@@ -1,7 +1,10 @@
 <!-- pages/course/course.wxml -->
-<view class="warpper">
-    <my-time></my-time>
+<view class="warpper" wx:if="{{!showMonth}}">
+    <my-time bind:showMonths="showMonths"></my-time>
     <block wx:for="{{course}}" wx:key="index">
         <my-day item="{{item}}"></my-day>
     </block>
+</view>
+<view class="months" wx:if="{{showMonth}}">
+    <my-week bind:showCourse="showCourse" class="week"></my-week>
 </view>

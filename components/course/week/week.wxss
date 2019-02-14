@@ -1,0 +1,13 @@
+/* components/course/week/week.wxss */
+.oneMonth{
+    padding: 0 0 40rpx 0;
+    border-bottom: 1px solid #333;
+}
+.tietle{
+    margin: 40rpx 0;
+}
+.wrap{
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    grid-row-gap: 40rpx;
+}

@@ -1,7 +1,9 @@
 {
     "usingComponents": {
         "my-time":"/components/course/date/date",
-        "my-day":"/components/course/day/day"
+        "my-day":"/components/course/day/day",
+        "my-week":"/components/course/week/week"
+
     }
 
 }

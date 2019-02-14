@@ -1,4 +1,4 @@
-/* pages/sign/sign.wxss */
+/* pages/sign/sign.wxss
 .weChat-login{
     width: 80%;
     height: 150rpx;
@@ -24,4 +24,9 @@
 .weChat-login>text{
     display: block;
     line-height: 100rpx;
+} */
+.test{
+    width: 200rpx;
+    height: 200rpx;
+    background: #333;
 }

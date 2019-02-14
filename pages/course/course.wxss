@@ -1,9 +1,17 @@
 /* pages/course/course.wxss */
 .warpper{
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(8,1fr);
 }
 .course{
     display: grid;
     grid-template-columns: repeat(7,1fr);
 }
+.months{
+    text-align: center;
+}
+.months>view{
+    margin-top: 20rpx;
+    display: block;
+}
+

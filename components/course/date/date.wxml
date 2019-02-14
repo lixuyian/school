@@ -1,16 +1,39 @@
-<!--components/course/date/date.wxml-->
+<!-- components/course/date/date.wxml -->
 <view class="warpper">
-    <view>12月</view>
-    <view>01</view>
-    <view>02</view>
-    <view>03</view>
-    <view>04</view>
-    <view>05</view>
-    <view>06</view>
-    <view>07</view>
-    <view>08</view>
-    <view>09</view>
-    <view>10</view>
-    <view>11</view>
+    <view bind:tap="showMonths">
+        <text>12月</text>
+    </view>
+    <view>
+        <text>01</text>
+    </view>
+    <view>
+        <text>02</text>
+    </view>
+    <view>
+        <text>03</text>
+    </view>
+    <view>
+        <text>04</text>
+    </view>
+    <view>
+        <text>05</text>
+    </view>
+    <view>
+        <text>06</text>
+    </view>
+    <view>
+        <text>07</text>
+    </view>
+    <view>
+        <text>08</text>
+    </view>
+    <view>
+        <text>09</text>
+    </view>
+    <view>
+        <text>10</text>
+    </view>
+    <view>
+        <text>11</text>
+    </view>
 </view>
-

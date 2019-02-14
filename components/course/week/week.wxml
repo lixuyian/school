@@ -1,0 +1,9 @@
+<!-- components/course/week/week.wxml -->
+<view class="oneMonth">
+    <view class="tietle">十二月</view>
+    <view class="wrap">
+        <block wx:for="{{day}}" wx:key="index">
+            <text bind:tap="showCourse">{{item.date}}</text>
+        </block>
+    </view>
+</view>

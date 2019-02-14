@@ -54,3 +54,19 @@ button{
 .item>picker{
     line-height: 150rpx;
 }
+.score>.wrap{
+    margin-top: 50rpx;
+    border-top: 1px dotted #76B78F;
+    padding-top: 40rpx;
+}
+.scoreItem{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    align-items: center;
+    justify-items: center;
+    font-size: 30rpx;
+    line-height: 50rpx;
+}
+.title{
+    line-height: 70rpx;
+}
