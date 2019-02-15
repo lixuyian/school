@@ -94,7 +94,7 @@ Page({
         weather
       })
     }
-    if (!cities) {
+    if (!this.data.cities.length) {
       this.setData({
         empty: true
       })

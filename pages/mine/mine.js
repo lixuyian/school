@@ -51,9 +51,24 @@ Page({
   },
 
   submit() {
+    if (this.data.newSchool == '') {
+      this.setData({
+        newSchool: this.data.student.school,
+      })
+    }
+    if (this.data.newMajor == '') {
+      this.setData({
+        newMajor: this.data.student.major,
+      })
+    }
+    if (this.data.newYear == '') {
+      this.setData({
+        newYear: this.data.student.year,
+      })
+    }
     //发送请求上传新的用户信息，使用学号进行发送
     wx.sendSocketMessage({
-      data: '{"type":"login","action":"upload","data":{ "nickName": "' + this.data.student.nickName + '","school":"' + this.data.school + '","major":"' + this.data.major + '","year":"' + this.data.year + '","id":"' + this.data.student.id + '","password":"' + this.data.student.password + '"}}',
+      data: '{"type":"login","action":"upload","data":{ "nickName": "' + this.data.student.nickName + '","school":"' + this.data.newSchool + '","major":"' + this.data.newMajor + '","year":"' + this.data.newYear + '","id":"' + this.data.student.id + '","password":"' + this.data.student.password + '"}}',
     })
     console.log("已发送");
     this.setData({
@@ -90,7 +105,10 @@ Page({
     wx.setStorageSync("student", student);
     this.setData({
       student,
-      show:false,
+      show: false,
+      newSchool: "",
+      newMajor: "",
+      newYear: ""
     })
   }
 }) 

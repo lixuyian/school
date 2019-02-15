@@ -20,15 +20,15 @@
         <view class="wrap">
             <view class="item">
                 <text>学校：</text>
-                <input type="text" bindinput="onSchool"/>
+                <input type="text" bindinput="onSchool" value="{{newSchool}}"/>
             </view>
             <view class="item">
                 <text>专业：</text>
-                <input type="text"  bindinput="onMajor"/>
+                <input type="text"  bindinput="onMajor" value="{{newMajor}}"/>
             </view>
             <view class="item">
                 <text>入学年份：</text>
-                <input type="text"  bindinput="onYear"/>
+                <input type="text"  bindinput="onYear" value="{{newYear}}"/>
             </view>
             <button bind:tap="submit">提交</button>
         </view>
