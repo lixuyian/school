@@ -4,28 +4,36 @@ Page({
    * 页面的初始数据
    */
   data: {
-    socketOpen: true,
     update: false,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad() {
+  onShow() {
+    wx.onSocketOpen(function(res) {
+      console.log("已连接")
+    })
     //获取当前周课表
     //获取系统时间
-    var currentDate = new Date().getDate();
-    var week = Math.ceil(currentDate / 7);
-    //使用获取到的week发送请求获取当前课表
-    if (this.data.socketOpen) {
-        wx.sendSocketMessage({
-          data: '{ "type": "curriculum", "action": "request", "data": { "weekid": ' + week + ' } }',
-        })
-        console.log("已发送");
-        this.setData({
-          update: true
-        })
+    var course = wx.getStorageSync('course');
+    if (course) {
+      this.setData({
+        course,
+      })
+    } else {
+      var currentDate = new Date().getDate();
+      var week = Math.ceil(currentDate / 7);
+      //使用获取到的week发送请求获取当前课表
+      wx.sendSocketMessage({
+        data: '{ "type": "curriculum", "action": "request", "data": { "weekid": ' + week + ' } }',
+      })
+      console.log("已发送");
+      this.setData({
+        update: true
+      })
     }
+
 
     wx.onSocketMessage(res => {
       if (this.data.update) {
@@ -34,6 +42,7 @@ Page({
         this.setData({
           course,
         })
+        wx.setStorageSync("course", this.data.course);
       }
     })
   },

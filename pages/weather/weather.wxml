@@ -21,6 +21,7 @@
         <image class="chose" bindtap="location" src="/images/weather/dili.png"></image>
         <view wx:if="{{!empty}}">
             <block wx:for="{{weather}}" wx:key="index">
+                <!-- <view class="location ripple {{cardRightIn?'fadeInRight':''}} {{cardLeftIn?'fadeInLeft':''}}" wx:if="{{index==currentIndex}}" bindtouchstart="touchstart" bindtouchmove="touchmove" data-index="{{index}}"> -->
                 <view class="location ripple {{cardRightIn?'fadeInRight':''}} {{cardLeftIn?'fadeInLeft':''}}" wx:if="{{index==currentIndex}}" bindtouchstart="touchstart" bindtouchmove="touchmove" data-index="{{index}}">
                     <text class="city">{{item.city}}</text>
                     <view class="weather">

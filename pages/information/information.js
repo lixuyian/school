@@ -51,7 +51,6 @@ Page({
       setTimeout(() => {
         wx.sendSocketMessage({
           data: '{"type":"login","action":"request","data":{ "nickName": "' + this.data.nickName + '","id":""}}',
-          // data: '{"type":"login","action":"request","data":{ "nickName": "赵一","id":""}}',
         })
         console.log("已发送");
         this.setData({
@@ -151,7 +150,7 @@ Page({
   //提交按钮功能
   submitAndTurn() {
     wx.sendSocketMessage({
-      data: '{"type":"login","action":"upload","data":{ "nickName": "赵一","school":"' + this.data.school + '","major":"' + this.data.major + '","year":"' + this.data.year + '","id":"' + this.data.id + '","password":"' + this.data.password + '"}}',
+      data: '{"type":"login","action":"upload","data":{"nickName": "' + this.data.nickName + '","school":"' + this.data.school + '","major":"' + this.data.major + '","year":"' + this.data.year + '","id":"' + this.data.id + '","password":"' + this.data.password + '"}}',
     })
     console.log("已发送");
     this.setData({

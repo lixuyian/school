@@ -7,8 +7,7 @@ Page({
   data: {
     show: false,
     array: ['大一上', '大一下', '大二上', '大二下', '大三上', '大三下', '大四上', '大四下'],
-    objectArray: [
-      {
+    objectArray: [{
         id: 0,
         name: '大一上'
       },
@@ -46,13 +45,14 @@ Page({
     inputPassword: "",
     socketOpen: true,
     update: false,
-    score: []
+    score: [],
+    noScore: false,
   },
   /**
    * 生命周期函数--监听页面加载
    */
 
-  bindPickerChange: function (e) {
+  bindPickerChange: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       index: e.detail.value,
@@ -92,22 +92,30 @@ Page({
       console.log(term);
       //发送请求获取对应学期的学习成绩
       if (this.data.socketOpen) {
-          wx.sendSocketMessage({
-            data: '{"type":"score","action": "request","data":{"term":' + term + ',"id":"' + id + '"}}',
-          })
-          console.log("已发送");
-          this.setData({
-            update: true
-          })
+        wx.sendSocketMessage({
+          // data: '{"type":"score","action": "request","data":{"term":' + term + ',"id":"' + id + '"}}',
+          data: '{"type":"score","action": "request","data":{"term":' + term + ',"id":"15160009"}}',
+        })
+        console.log("已发送");
+        this.setData({
+          update: true
+        })
       }
 
       wx.onSocketMessage(res => {
         if (this.data.update) {
           var data = JSON.parse(res.data);
           var score = data.data;
-          this.setData({
-            score,
-          })
+          if (score) {
+            this.setData({
+              score,
+            })
+          } else {
+            this.setData({
+              noScore: true,
+            })
+          }
+
         }
         // console.log(res);
       })
@@ -116,8 +124,7 @@ Page({
       this.setData({
         show: isShow
       })
-    }
-    else {
+    } else {
       console.log("sameId:" + sameId + ";" + "samePassword:" + samePassword);
       wx.showModal({
         title: '',

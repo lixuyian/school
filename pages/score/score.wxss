@@ -70,3 +70,7 @@ button{
 .title{
     line-height: 70rpx;
 }
+.noScore{
+  margin-top: 100rpx;
+  text-align: center;
+}

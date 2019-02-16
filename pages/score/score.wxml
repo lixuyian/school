@@ -30,6 +30,7 @@
                 <text>成绩</text>
                 <text>绩点</text>
             </view>
+            <view class="noScore" wx:if="{{noScore}}">暂无成绩</view>
             <block wx:for="{{score}}" wx:key="index">
                 <view class="scoreItem">
                     <text>{{item.course}}</text>

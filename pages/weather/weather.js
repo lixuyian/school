@@ -1,4 +1,5 @@
 // pages/weather/weather.js
+const app = getApp();
 Page({
 
   /**
@@ -29,7 +30,7 @@ Page({
     weather: [],
     cityIndex: [0],
     update: false,
-    empty: false
+    empty: false,
 
     /**天气信息end */
   },
@@ -56,7 +57,6 @@ Page({
       cityIndex,
       weather
     })
-    console.log(index);
     //2.使用获取的index值发送请求获取天气数据
     wx.sendSocketMessage({
       data: '{ "type": "weather", "action": "request", "data": { "cityId": ' + index + ', "date": "2018/12/12" } }'
@@ -79,25 +79,26 @@ Page({
   },
   /**地理位置标签块删除 */
   delect(e) {
-    if (e.detail.value) {
-      var value = e.detail.value;
-      var cities = this.data.cities;
-      var cityIndex = this.data.cityIndex;
-      var weather = this.data.weather;
-      var index = cities.indexOf(value);
-      cities.splice(index, 1);
-      cityIndex.splice(index, 1);
-      weather.splice(index, 1);
-      this.setData({
-        cities,
-        cityIndex,
-        weather
-      })
-    }
-    if (!this.data.cities.length) {
+    if (this.data.cities.length == 0) {
       this.setData({
         empty: true
       })
+    } else {
+      if (e.detail.value) {
+        var value = e.detail.value;
+        var cities = this.data.cities;
+        var cityIndex = this.data.cityIndex;
+        var weather = this.data.weather;
+        var delectIndex = cities.indexOf(value);
+        cities.splice(delectIndex, 1);
+        cityIndex.splice(delectIndex, 1);
+        weather.splice(delectIndex, 1);
+        this.setData({
+          cities,
+          cityIndex,
+          weather
+        })
+      }
     }
   },
   /**
@@ -110,7 +111,6 @@ Page({
     var year = new Date().getFullYear();
     var month = (new Date().getMonth()) + 1;
     var currentDate = year + "/" + month + "/" + date;
-    // console.log(currentDat e);
 
     wx.onSocketMessage(res => {
       if (this.data.update) {
@@ -122,7 +122,6 @@ Page({
         this.setData({
           weather,
         })
-        wx.setStorageSync("weather", this.data.weather);
       }
 
     })
@@ -153,6 +152,7 @@ Page({
   touchmove: function (e) {
     // console.log(e)
     let idx = e.currentTarget.dataset.index;
+    console.log(idx);
     let startX = this.data.startX;//开始X坐标
     let startY = this.data.startY;//开始Y坐标
     let touchMoveX = e.changedTouches[0].clientX;//滑动变化坐标
