@@ -4,10 +4,8 @@
     "pages/mine/mine",
     "pages/welcome/welcome",
     "pages/course/course",
-   "pages/score/score",
-   "pages/weather/weather"
-    
-   
+    "pages/score/score",
+    "pages/weather/weather"
   ],
   "window": {
     "backgroundTextStyle": "light",

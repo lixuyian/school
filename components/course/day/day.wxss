@@ -67,8 +67,6 @@ my-course{
 }
 .five{
     grid-row-start: 5;
-    /* background: #a98175; */
-    /* background:#b36d61 */
 }
 .seven{
     grid-row-start: 7;
@@ -81,7 +79,6 @@ my-course{
 }
 .span2{
     grid-row-end: span 2;
-    /* background: pink; */
 }
 .span3{
     grid-row-end: span 3;

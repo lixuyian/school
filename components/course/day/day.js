@@ -52,6 +52,7 @@ Component({
                 this.setData({
                   oneDayContent
                 })
+                console.log(oneDayContent);
               }
             }
           }

@@ -3,7 +3,7 @@
     <view class="tietle">十二月</view>
     <view class="wrap">
         <block wx:for="{{day}}" wx:key="index">
-            <text bind:tap="showCourse">{{item.date}}</text>
+            <text bind:tap="showCourse" data-id="{{item.date}}">{{item.date}}</text>
         </block>
     </view>
 </view>

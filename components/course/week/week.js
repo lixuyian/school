@@ -18,8 +18,8 @@ Component({
    */
   methods: {
     showCourse(e) {
-      // console.log(e);
-      this.triggerEvent("showCourse", e._relatedInfo.anchorTargetText);
+      console.log(e.target.dataset.id);
+      this.triggerEvent("showCourse", e.target.dataset.id);
     }
   }
 })
